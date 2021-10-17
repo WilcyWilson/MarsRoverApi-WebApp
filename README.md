@@ -1,4 +1,4 @@
-### A Web Development project using Spring MVC, Hibernate, MySQL and Thymeleaf to create a
+### A Web Development project using Spring MVC, Hibernate, MySQL, Thymeleaf and NASA API to create a web application that show Real Time Mars Rover Data
 
 # Navigate to Different Branches in the project:
 
