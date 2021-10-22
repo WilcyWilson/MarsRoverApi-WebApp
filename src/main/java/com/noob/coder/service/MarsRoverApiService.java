@@ -8,10 +8,10 @@ import com.noob.coder.response.MarsRoverApiResponse;
 
 @Service
 public class MarsRoverApiService {
-	public MarsRoverApiResponse getRoverData() {
+	public MarsRoverApiResponse getRoverData(String roverType) {
 		RestTemplate rt = new RestTemplate();
 		ResponseEntity<MarsRoverApiResponse> response = rt.getForEntity(
-				"https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=2&api_key=4xGnh9vzNw9G2kvBP8Q0Gt61IlXDk9C5JKhWmnq0",
+				"https://api.nasa.gov/mars-photos/api/v1/rovers/"+roverType+"/photos?sol=2&api_key=4xGnh9vzNw9G2kvBP8Q0Gt61IlXDk9C5JKhWmnq0",
 				MarsRoverApiResponse.class);
 		return response.getBody();
 	}

@@ -15,7 +15,7 @@ public class HomeController {
 	private MarsRoverApiService roverSevice;
 	@GetMapping("/")
 	public String getHomeView(ModelMap model) {
-		MarsRoverApiResponse roverData = roverSevice.getRoverData();
+		MarsRoverApiResponse roverData = roverSevice.getRoverData("opportunity");
 		model.put("roverData", roverData);
 		return "index";
 	}

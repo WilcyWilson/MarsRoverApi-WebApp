@@ -6,14 +6,22 @@
 	rel="stylesheet"
 	integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
 	crossorigin="anonymous" />
+
 </head>
 <body>
 	<div class="container">
 		<h2>Welcome to the Mars Rover API Web App</h2>
+		<div class="btn-group btn-group-lg" role="group"
+			aria-label="Basic example" style="margin: 2em 0em;">
+			<button type="button" class="btn btn-secondary" id="marsApiCuriosity">Curiosity</button>
+			<button type="button" class="btn btn-secondary" id="marsApiOpportunity">Opportunity</button>
+			<button type="button" class="btn btn-secondary" id="marsApiSpirit">Spirit</button>
+		</div>
 
-
-		<div th:each="index : ${#numbers.sequence(0,roverData.photos.size(),4)}" class="row" style="margin-bottom: 2em">
-			<div class="col">
+		<div
+			th:each="index : ${#numbers.sequence(0,roverData.photos.size(),4)}"
+			class="row" style="margin-bottom: 2em;">
+			<div class="col" th:if="${roverData.photos.size() > index}">
 				<img th:src="${roverData.photos[index].imgSrc}" class="img-fluid" />
 			</div>
 			<div class="col" th:if="${roverData.photos.size() > index+1}">
@@ -30,4 +38,7 @@
 	<!--<img th:each="photo : ${roverData.photos}" th:src="${photo.imgSrc}" />-->
 	<!-- <div th:text="${roverData}"> </div>-->
 </body>
+<script type="text/javascript" src="/js/index.js">
+	
+</script>
 </html>
