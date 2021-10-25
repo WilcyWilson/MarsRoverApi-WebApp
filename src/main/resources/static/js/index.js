@@ -21,6 +21,9 @@ let marsRoverType = getUrlParameter("marsApiRoverData")
 
 highlightBtnByRoverType(marsRoverType)
 
+let marsSol = getUrlParameter('marsSol')
+document.getElementById('marsSol').value = marsSol
+
 function highlightBtnByRoverType(roverType) {
 	if (roverType == '')
 		roverType = 'Opportunity'
