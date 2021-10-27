@@ -17,8 +17,6 @@ function getUrlParameter(name) {
 
 let marsRoverType = getUrlParameter("marsApiRoverData")
 
-
-
 highlightBtnByRoverType(marsRoverType)
 
 let marsSol = getUrlParameter('marsSol')

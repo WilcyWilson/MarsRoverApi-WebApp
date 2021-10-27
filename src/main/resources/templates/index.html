@@ -27,7 +27,8 @@
 				<div class="col-12 col-md-4">
 					<div class="form-check">
 						<input class="form-check-input" type="checkbox"
-							th:field="${homeDto.cameraFhaz}"> <label
+							th:field="${homeDto.cameraFhaz}"
+							th:disabled="${!#lists.contains(validCameras,'FHAZ')}"> <label
 							class="form-check-label" for="cameraFhaz1"> Front Hazard
 							Avoidance Camera </label>
 					</div>
@@ -36,14 +37,16 @@
 					<div class="form-check">
 						<input class="form-check-input" type="checkbox"
 							th:field="${homeDto.cameraRhaz}"> <label
-							class="form-check-label" for="cameraRhaz1"> Rear Hazard
+							class="form-check-label" for="cameraRhaz1"
+							th:disabled="${!#lists.contains(validCameras,'FHAZ')}"> Rear Hazard
 							Avoidance Camera </label>
 					</div>
 				</div>
 				<div class="col-12 col-md-4">
 					<div class="form-check">
 						<input class="form-check-input" type="checkbox"
-							th:field="${homeDto.cameraMast}"> <label
+							th:field="${homeDto.cameraMast}"
+							th:disabled="${!#lists.contains(validCameras,'MAST')}"> <label
 							class="form-check-label" for="cameraMast1"> Mast Camera </label>
 					</div>
 				</div>
@@ -52,7 +55,8 @@
 				<div class="col-12 col-md-4">
 					<div class="form-check">
 						<input class="form-check-input" type="checkbox"
-							th:field="${homeDto.cameraChemcam}"> <label
+							th:field="${homeDto.cameraChemcam}"
+							th:disabled="${!#lists.contains(validCameras,'CHEMCAM')}"> <label
 							class="form-check-label" for="cameraChemcam1"> Chemistry
 							and Camera Complex </label>
 					</div>
@@ -60,7 +64,8 @@
 				<div class="col-12 col-md-4">
 					<div class="form-check">
 						<input class="form-check-input" type="checkbox"
-							th:field="${homeDto.cameraMahli}"> <label
+							th:field="${homeDto.cameraMahli}"
+							th:disabled="${!#lists.contains(validCameras,'MAHLI')}"> <label
 							class="form-check-label" for="cameraMahli1"> Mars Hand
 							Lens Imager </label>
 					</div>
@@ -68,7 +73,8 @@
 				<div class="col-12 col-md-4">
 					<div class="form-check">
 						<input class="form-check-input" type="checkbox"
-							th:field="${homeDto.cameraMardi}"> <label
+							th:field="${homeDto.cameraMardi}"
+							th:disabled="${!#lists.contains(validCameras,'MARDI')}"> <label
 							class="form-check-label" for="cameraMardi1"> Mars Descent
 							Imager </label>
 					</div>
@@ -78,7 +84,8 @@
 				<div class="col-12 col-md-4">
 					<div class="form-check">
 						<input class="form-check-input" type="checkbox"
-							th:field="${homeDto.cameraNavcam}"> <label
+							th:field="${homeDto.cameraNavcam}"
+							th:disabled="${!#lists.contains(validCameras,'NAVCAM')}"> <label
 							class="form-check-label" for="cameraNavcam1"> Navigation
 							Camera </label>
 					</div>
@@ -86,7 +93,8 @@
 				<div class="col-12 col-md-4">
 					<div class="form-check">
 						<input class="form-check-input" type="checkbox"
-							th:field="${homeDto.cameraPancam}"> <label
+							th:field="${homeDto.cameraPancam}"
+							th:disabled="${!#lists.contains(validCameras,'PANCAM')}"> <label
 							class="form-check-label" for="cameraPancam1"> Panoramic
 							Camera </label>
 					</div>
@@ -94,7 +102,8 @@
 				<div class="col-12 col-md-4">
 					<div class="form-check">
 						<input class="form-check-input" type="checkbox"
-							th:field="${homeDto.cameraMinites}"> <label
+							th:field="${homeDto.cameraMinites}"
+							th:disabled="${!#lists.contains(validCameras,'MINITES')}"> <label
 							class="form-check-label" for="cameraMinites1"> Miniature
 							Thermal Emission Spectrometer (Mini-TES) </label>
 					</div>
@@ -104,7 +113,7 @@
 			<div class="form-group">
 				<label for="marsSol" class="col-form-label col-form-label-lg">Mars
 					Sol (Mars Day):</label> <input class="form-control form-control-lg"
-					type="number" th:field="${homeDto.marsSol}" min="0" />
+					type="number" th:field="${homeDto.marsSol}" min="0"/>
 			</div>
 			<button type="submit" class="btn btn-primary btn-lg">Submit</button>
 		</form>
@@ -112,16 +121,20 @@
 		<div
 			th:each="index : ${#numbers.sequence(0,roverData.photos.size(),4)}"
 			class="row" style="margin-bottom: 2em;">
-			<div class="col-12 col-md-4 col-lg-3" th:if="${roverData.photos.size() > index}">
+			<div class="col-12 col-md-4 col-lg-3"
+				th:if="${roverData.photos.size() > index}">
 				<img th:src="${roverData.photos[index].imgSrc}" class="img-fluid" />
-			</div> 
-			<div class="col-12 col-md-4 col-lg-3" th:if="${roverData.photos.size() > index+1}">
+			</div>
+			<div class="col-12 col-md-4 col-lg-3"
+				th:if="${roverData.photos.size() > index+1}">
 				<img th:src="${roverData.photos[index+1].imgSrc}" class="img-fluid" />
 			</div>
-			<div class="col-12 col-md-4 col-lg-3" th:if="${roverData.photos.size() > index+2}">
+			<div class="col-12 col-md-4 col-lg-3"
+				th:if="${roverData.photos.size() > index+2}">
 				<img th:src="${roverData.photos[index+2].imgSrc}" class="img-fluid" />
 			</div>
-			<div class="col-12 col-md-4 col-lg-3" th:if="${roverData.photos.size() > index+3}">
+			<div class="col-12 col-md-4 col-lg-3"
+				th:if="${roverData.photos.size() > index+3}">
 				<img th:src="${roverData.photos[index+3].imgSrc}" class="img-fluid" />
 			</div>
 		</div>
