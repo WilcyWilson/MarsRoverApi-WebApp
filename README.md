@@ -1,6 +1,6 @@
 ## Browser view of the Mars Rover API images
 
-![Test](test.gif)
+![Test](test2.gif)
 
 ## What Controller does?
 
