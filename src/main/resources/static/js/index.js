@@ -1,3 +1,13 @@
+let userId = getUrlParameter('userId')
+if (userId == null || userId == '') {
+	userId = localStorage.getItem('userId')
+}
+
+if (userId != null && userId != '') {
+	localStorage.setItem('userId', userId)
+	document.getElementById('userId').value = userId
+}
+
 for (let e of document.querySelectorAll("button[id*='marsApi']")) {
 	e.addEventListener('click', function() {
 		const buttonId = this.id

@@ -2,44 +2,17 @@
 
 ![Test](test2.gif)
 
-## What Controller does?
+## What are we trying to achieve?
 
-1. Accepts the request
-2. Decides what code to execute 
-3. Sends to the service
-4. Gets the response from the service
-5. Sends the response back to the model back to the view.
+- When we say submit it will pass all the information about marsSol and other checkboxes in the url to the java server or backend. Java server will intercept the fact that we have rememberPreferences turned on or true. When its turned on, it can try to see if the person who has set rememberpreferences already has some id in the database already. We will store different id for different users? How do we do that?
+- We will use Local Storage mechanism in javascript introduced in HTML5 long before. We will generate an id if the person doesn't already have one, in the backend in the server side in the database, and send the id back to the frontend via the model. Then we load up the model, we can store that id on the local storage, next time we press submit, it will submit that id along with the request and use that id to store data in the database.
 
-## Organizing classes in different packages
+- We are going to store the homeDto values. This is going to be our sort of a database table with a identifier for each row to uniquely identify the user.
 
-- service package is used when we have multiple controllers that need to do the same thing. 
-Say Home Controller and Dashboard Controller need to perform the same functionality. Instead of same code copied into two places. We take that code out of both controller and we put it in a service. Good for getting rid of code duplication. Extracting the business logic and putting it in the service classes. Service is for ease of use to change technology. Flexibility. Say you want to switch from hibernate for ORM. It makes it easy to switch to different technology. 
-- We should reduce the amount of business logic in your controller. Controller should really only handle listening for requests and calling a service. We get a response back from ther service and we send the response back to the front end. If we include business logic in Controller, there is more chance that we would have duplication of code.
-- repository package are for accessing the database. 
+- We are creating a user system without having username and login. We will just have it remember whichever device we are using, it will remember it on. There is no way to tie all the device in one user id unless we use username and login. It will remember the preferences for each device individually. 
 
-## Auto instantiating Service class in Controller
-We don't need to instantiate the service like:
-```
-rover = new MarsRoverApiService()
-```
-because Spring does that for us. This is part of spring framework.
+## What are localStorage in javascript?
 
-We use the annotation @Autowired. We are telling spring with this annotation that this particular object or service is managed by spring. Hey spring give us this objec that you have already instantiated on our behalf. 
+- The localStorage read-only property of the window interface allows you to access a Storage object for the Document's origin; the stored data is saved across browser sessions.
 
-## Manipulating the Response data using thymeleaf
-
-- We can see we are using foreach loop. Here roverData.photos gives array of MarsPhoto and we are going to iterate through each photo. And we are using the link of each photo in th:src.
-
-- We need to use spring expression language to use code expression. We need to use th to augment the source. Without th in the front we can't use ${} spring spring expression language. Here we can see all the pictures that we got back from using the NASA API.
-
-## Response
-![Response](response.jpg)
-
-## Service
-![Service](service.jpg)
-
-## Controller
-![Controller](controller.jpg)
-
-## View
-![View](view.jpg)
+[Source Link](https://blog.logrocket.com/localstorage-javascript-complete-guide/)
