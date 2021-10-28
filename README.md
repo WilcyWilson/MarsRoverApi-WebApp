@@ -6,4 +6,7 @@
 
 ## [2. Restful Web App](https://github.com/WilcyWilson/MarsRoverApi-WebApp/tree/restful_web_app_2#readme)
 
-## [3. Frontend](https://github.com/WilcyWilson/MarsRoverApi-WebApp#readme)
+## [3. Frontend](https://github.com/WilcyWilson/MarsRoverApi-WebApp/tree/frontend_start_3#readme)
+
+## [4. Adding Database](https://github.com/WilcyWilson/MarsRoverApi-WebApp/tree/adding_database_4#readme)
+
