@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.noob.coder.dto.HomeDto;
+import com.noob.coder.repository.PreferencesRepository;
 import com.noob.coder.response.MarsRoverApiResponse;
 import com.noob.coder.service.MarsRoverApiService;
 
@@ -18,7 +19,7 @@ public class HomeController {
 
 	@Autowired
 	private MarsRoverApiService roverService;
-
+	
 	@GetMapping("/")
 	public String getHomeView(ModelMap model, HomeDto homeDto) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
 		if (ObjectUtils.isEmpty(homeDto.getMarsApiRoverData())) {
@@ -36,7 +37,7 @@ public class HomeController {
 	
 	@PostMapping("/")
 	public String postHomeView(HomeDto homeDto) {
-		System.out.println(homeDto);
+		roverService.save(homeDto);
 		return "redirect:/";
 	}
 }
