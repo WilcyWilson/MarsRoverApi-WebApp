@@ -23,3 +23,26 @@ Very powerful.
 ![component](component.jpg)
 
 ![controller](controller.jpg)
+
+## Creating database on MySQL Workbench for our Web Application
+
+![mysql](mysql.jpg)
+
+- We will use this database in application properties.
+
+- Spring Boot has built in tomcat server for us so that we don't have to configure on our own.
+These properties file helps us to get running with sensible defaults right away.
+
+## Listening to GET request on the root of the website
+
+- When we don't type any parameter its value="/". GetMapping listening to the root URL. The url exists but it has a problem resolving the index page as we see in our stack trace. Can't find the view that should be rendered. The view called index cannot be found.
+
+![html](html.jpg)
+
+- When we return the index here by default Spring convention, it is going to look for index.html inside of the templates folder.
+It just rendered the html page. index is the view part. HomeController is the controller part. Model part is still left.
+
+![view](view.jpg)
+
+
+
