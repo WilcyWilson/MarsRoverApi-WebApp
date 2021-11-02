@@ -38,7 +38,7 @@
 - The problem is every database table needs a unique way to identify every single row in the table. We need to be able to pick a single row of data. 
 We use ids, primary key to identify a single row of data, a unique number to each row.
 
-- We need to tell hiberate which one of these properties is the primary key.
+- We need to tell hibernate which one of these properties is the primary key.
 
 ![Primary](primary.jpg)
 
@@ -57,5 +57,23 @@ We use ids, primary key to identify a single row of data, a unique number to eac
 - varchar 255 for mars_api_roverdata. We can overwrite the length in the homeDto using @Column annotation in the getter method.
 We do this to save space in our database. 
 
+## Restarting Server. Why won't it change the Database?
 
+- Restarting the server after this won't change the varchar size in the server, it will remain the same
+This is because we are using the update in the application.properties here in jpa hibernate property.
+update tries its best to update the database structures as close to what we have defined in our @Entity definition. 
+But when it comes to altering @Column its not smart enough how to alter a column.
+
+![Coulumn](column.jpg)
+
+- This is where we would want to drop the table completely and read it again. We can do that manually or we can use the create property instead of update.
+
+- create property will drop and re add all the table on each run.
+After dropping and reading
+
+![Create](create.jpg)
+
+- We need to switch back to update because we don't want that again.
+
+- We can do lots of customization on how we want our database to behave using different jpa annotation like not wanting our userid to be null. using the @Column annotation.
 
